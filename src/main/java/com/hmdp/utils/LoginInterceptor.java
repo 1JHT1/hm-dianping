@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //从ThreadLocal中获取用户信息并判断是否为空
-       if(UserHolder.getUser()!=null){
+       if(UserHolder.getUser()==null){
            //如果为空，说明用户未登录，返回401
            response.setStatus(401);
            return false;
